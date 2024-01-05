@@ -1,2 +1,16 @@
 #!/bin/bash
-python -m py_compile "$PYFILE"
+
+# Check if $PYFILE is set
+if [ -z "$PYFILE" ]; then
+    echo "Error: Environment variable PYFILE is not set."
+    exit 1
+fi
+
+# Extracting the directory path and filename
+DIR=$(dirname "$PYFILE")
+FILE=$(basename "$PYFILE")
+
+# Changing directory to the script directory and compiling
+echo "Compiling $FILE ..."
+cd "$DIR" || exit 1
+python3 -m py_compile "$FILE"
