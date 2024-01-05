@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import dis
 
 def print_hidden_4_names():
