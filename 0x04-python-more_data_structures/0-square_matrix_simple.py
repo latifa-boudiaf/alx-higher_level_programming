@@ -1,9 +1,6 @@
 #!/usr/bin/python
 
 def square_matrix_simple(matrix=None):
-    if matrix is None:
-        matrix = []
-
     new_matrix = []
 
     for i in range(len(matrix)):
