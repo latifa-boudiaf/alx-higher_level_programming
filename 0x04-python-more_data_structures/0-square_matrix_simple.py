@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-def square_matrix_simple(matrix=None):
+def square_matrix_simple(matrix=[]):
     new_matrix = []
 
     for i in range(len(matrix)):
