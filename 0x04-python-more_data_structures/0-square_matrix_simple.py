@@ -1,5 +1,4 @@
-#!/usr/bin/python
-
+#!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
     new_matrix = []
 
@@ -11,4 +10,3 @@ def square_matrix_simple(matrix=[]):
         new_matrix.append(row)
 
     return new_matrix
-
