@@ -2,7 +2,7 @@
 
 [ -z "$PYFILE" ] && { echo "Error: PYFILE environment variable not set."; exit 1; }
 
-output="${PYFILE%.py}.pyc"
+output="${PYFILE%.py}c.pyc"
 echo "Compiling $PYFILE ..." && \
 python3 -m py_compile "$PYFILE" && \
 mv -f "__pycache__/$PYFILE.cpython-*.pyc" "$output" && \
