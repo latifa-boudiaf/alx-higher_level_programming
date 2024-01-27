@@ -1,17 +1,13 @@
 #!/usr/bin/python3
 import dis
-
-def print_hidden_4_names():
-    code = open('hidden_4.pyc', 'rb').read()
-    instructions = dis.get_instructions(code)
-    
-    names = set()
-    for instr in instructions:
-        if instr.opname == 'LOAD_NAME' and not instr.argrepr.startswith('__'):
-            names.add(instr.argrepr)
-    
-    for name in sorted(names):
-        print(name)
+import importlib.util
 
 if __name__ == "__main__":
-    print_hidden_4_names()
+    spec = importlib.util.spec_from_file_location("hidden_4", "hidden_4.pyc")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    names = [name for name in dir(module) if not name.startswith("__")]
+
+    for name in sorted(names):
+        print(name)
